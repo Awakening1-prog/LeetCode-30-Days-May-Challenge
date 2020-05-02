@@ -1,0 +1,10 @@
+def numJewelsInStones(J: str, S: str) -> int:
+        s=0
+        if len(J)==0 or len(S)==0:
+            return 0
+        for i in range(len(J)):
+            s+=S.count(J[i])
+        return s
+s=input()
+s1=input()
+print(numJewelsInStones(s,s1))
