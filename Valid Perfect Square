@@ -1,0 +1,8 @@
+class Solution:
+    import math
+    def isPerfectSquare(self, num: int) -> bool:
+        a=math.sqrt(num)
+        if math.floor(a)-a==0:
+            return 1
+        else:
+            return 0
