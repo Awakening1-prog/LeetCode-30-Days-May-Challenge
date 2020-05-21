@@ -1,0 +1,14 @@
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        ans = []
+        magic = 1  # will store a hash for p
+        for i in p:
+            magic *= ord(i)  # calculating hash as product of ascci representation of each alphabet
+        tmp = 1  # will store the hash for the sliding window
+        for i in range(len(s)):
+            tmp *= ord(s[i])
+            if i >= len(p) - 1:
+                if magic == tmp:
+                    ans.append(i+1-len(p))
+                tmp //= ord(s[i+1-len(p)])
+        return ans
