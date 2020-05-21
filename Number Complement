@@ -1,0 +1,15 @@
+class Solution:
+    def findComplement(self, num: int) -> int:
+        a=bin(num)
+        a=a[2:]
+        a=list(a)
+        for i in range(len(a)):
+            if a[i]=="1":
+                a[i]="0"
+            else:
+                a[i]="1"
+        a=a[::-1]
+        s=0
+        for i in range(len(a)):
+            s+=int(a[i])*2**i
+        return s
