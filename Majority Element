@@ -1,0 +1,10 @@
+class Solution:
+    from collections import Counter
+    def majorityElement(self, nums: List[int]) -> int:
+        a=len(nums)//2
+        l=Counter(nums)
+        x=l.most_common(len(l))
+        for i in range(len(x)):
+            if x[i][1]>a:
+                return x[i][0]
+        
