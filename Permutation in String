@@ -1,0 +1,21 @@
+class Solution:
+    from itertools import permutations
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        l=[]
+        n=len(s1)
+        pro=1
+        l=[]
+        temp=1
+        for i in range(n):
+            pro=pro*ord(s1[i])
+        for i in range(len(s2)):
+            temp*=ord(s2[i])
+            if i>=n-1:
+                if pro==temp:
+                    l.append(s2[i+1-n])
+                temp//=ord(s2[i+1-n])
+        if len(l)>0:
+            return 1
+        else:
+            return 0
+                           
