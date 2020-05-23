@@ -1,0 +1,19 @@
+class Solution:
+    def intervalIntersection(self, A: List[List[int]], B: List[List[int]]) -> List[List[int]]:
+        ptr1=0
+        l=[]
+        ptr2=0
+        temp=[0]*2
+        while ptr1<len(A) and ptr2<len(B):
+            s1=A[ptr1][0]
+            s2=A[ptr1][1]
+            e1=B[ptr2][0]
+            e2=B[ptr2][1]
+            if s2>=e1 and e2>=s1:
+                l.append([max(s1,e1),min(e2,s2)])
+            if s2>e2:
+                ptr2+=1
+            else:
+                ptr1+=1
+        return l
+            
