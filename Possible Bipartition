@@ -1,0 +1,20 @@
+class Solution:
+    def cycle(self,i,g,colors,c):
+        colors[i]=c
+        for id in g[i]:
+            if colors[id]==c or colors[id]==0 and not self.cycle(id,g,colors,-c):
+                return 0
+        return 1
+        
+    def possibleBipartition(self, N: int, dislikes: List[List[int]]) -> bool:
+        graph=collections.defaultdict(list)
+        colors=[0]*(N+1)
+        for i in dislikes:
+            src=i[0]-1
+            des=i[1]-1
+            graph[src].append(des)
+            graph[des].append(src)
+        for i,n in enumerate(colors):
+            if i>0 and n==0 and not self.cycle(i,graph,colors,1):
+                return 0
+        return 1
