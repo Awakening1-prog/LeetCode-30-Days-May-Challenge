@@ -1,0 +1,21 @@
+class Solution:
+    def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
+        #l=[]
+        l1=[]
+        h={}
+        for i in range(len(points)):
+            x=points[i][0]
+            y=points[i][1]
+            s=math.sqrt((x-0)**2+(y-0)**2)
+            #l.append(s)
+            h[i]=s
+        d=dict(sorted(h.items(),key=operator.itemgetter(1)))
+       # print(d)
+        l1=[]
+        for i in d.keys():
+            l1.append(i)
+        k2=[]
+        #print(l1)
+        for i in range(K):
+            k2.append(points[l1[i]])
+        return k2
